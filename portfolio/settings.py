@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'musicApi',
     'musicFrontend',
     'furnitureFrontend',
+    'cosmeticsFrontend',
     'furnitureApi',
+    'cosmeticsApi',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +65,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'furnitureFrontend/build'),
+            os.path.join(BASE_DIR, 'cosmeticsFrontend/build'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,7 +130,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'furnitureFrontend/build/static')
+    os.path.join(BASE_DIR, 'cosmeticsFrontend/build/static')
 ]
 
 AUTH_USER_MODEL = 'musicApi.CustomUser'
