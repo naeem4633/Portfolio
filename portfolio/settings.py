@@ -65,7 +65,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'cosmeticsFrontend/build'),
+            os.path.join(BASE_DIR, 'musicFrontend/build'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,7 +130,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'cosmeticsFrontend/build/static')
+    os.path.join(BASE_DIR, 'musicFrontend/build/static')
 ]
 
 AUTH_USER_MODEL = 'musicApi.CustomUser'
