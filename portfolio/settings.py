@@ -15,6 +15,11 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+MUSIC_FRONTEND_DIR = os.path.join(BASE_DIR, 'musicFrontend/build')
+FURNITURE_FRONTEND_DIR = os.path.join(BASE_DIR, 'furnitureFrontend/build')
+PHOTOGRAPHER_FRONTEND_DIR = os.path.join(BASE_DIR, 'photographerFrontend/build')
+COSMETICS_FRONTEND_DIR = os.path.join(BASE_DIR, 'cosmeticsFrontend/build')
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -65,7 +70,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'photographerFrontend/build'),
+            FURNITURE_FRONTEND_DIR,
+            COSMETICS_FRONTEND_DIR,
+            MUSIC_FRONTEND_DIR,   
+            PHOTOGRAPHER_FRONTEND_DIR,
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,7 +138,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'photographerFrontend/build/static')
+    os.path.join(BASE_DIR, 'furnitureFrontend/build/static')
 ]
 
 AUTH_USER_MODEL = 'musicApi.CustomUser'
