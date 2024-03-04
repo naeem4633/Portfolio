@@ -22,8 +22,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('musicApi/', include('musicApi.urls')),
-    path('furnitureApi/', include('musicApi.urls')),
+    path('furnitureApi/', include('furnitureApi.urls')),
     path('cosmeticsApi/', include('cosmeticsApi.urls')),
-    path('spotify/', include('spotify.urls')),
+    path('spotify/', include('spotify.urls')), 
 ]
   
