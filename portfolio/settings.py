@@ -69,14 +69,14 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            FURNITURE_FRONTEND_DIR,
-            COSMETICS_FRONTEND_DIR,
-            MUSIC_FRONTEND_DIR,   
-            PHOTOGRAPHER_FRONTEND_DIR,
-        ],
-        'APP_DIRS': True,
+        'DIRS': [],
+        'APP_DIRS': False,
         'OPTIONS': {
+            'loaders': [
+                ('portfolio.template_loaders.ConditionalLoader', [
+                    'django.template.loaders.filesystem.Loader',
+                ]),
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -138,7 +138,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'furnitureFrontend/build/static')
+    os.path.join(BASE_DIR, 'musicFrontend/build/static'),
+    os.path.join(BASE_DIR, 'furnitureFrontend/build/static'),
+    os.path.join(BASE_DIR, 'photographerFrontend/build/static'),
+    os.path.join(BASE_DIR, 'cosmeticsFrontend/build/static'),
 ]
 
 AUTH_USER_MODEL = 'musicApi.CustomUser'
