@@ -15,10 +15,10 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-MUSIC_FRONTEND_DIR = os.path.join(BASE_DIR, 'musicFrontend/build')
-FURNITURE_FRONTEND_DIR = os.path.join(BASE_DIR, 'furnitureFrontend/build')
-PHOTOGRAPHER_FRONTEND_DIR = os.path.join(BASE_DIR, 'photographerFrontend/build')
-COSMETICS_FRONTEND_DIR = os.path.join(BASE_DIR, 'cosmeticsFrontend/build')
+# MUSIC_FRONTEND_DIR = os.path.join(BASE_DIR, 'musicFrontend/build')
+# FURNITURE_FRONTEND_DIR = os.path.join(BASE_DIR, 'furnitureFrontend/build')
+# PHOTOGRAPHER_FRONTEND_DIR = os.path.join(BASE_DIR, 'photographerFrontend/build')
+# COSMETICS_FRONTEND_DIR = os.path.join(BASE_DIR, 'cosmeticsFrontend/build')
 
 
 
@@ -69,14 +69,11 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': False,
-        'OPTIONS': {
-            'loaders': [
-                ('portfolio.template_loaders.ConditionalLoader', [
-                    'django.template.loaders.filesystem.Loader',
-                ]),
+        'DIRS': [
+            BASE_DIR
             ],
+        'APP_DIRS': True,
+        'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',

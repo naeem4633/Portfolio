@@ -23,12 +23,12 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
-    path('music/', include('musicFrontend.urls')),  # Route to music frontend
-    path('furniture/', include('furnitureFrontend.urls')),  # Route to furniture frontend
-    path('photographer/', include('photographerFrontend.urls')),  # Route to photographer frontend
-    path('cosmetics/', include('cosmeticsFrontend.urls')),  # Route to cosmetics frontend
+    path('music/', views.music_frontend, name='music_frontend'),
+    path('furniture/', views.furniture_frontend, name='furniture_frontend'),
+    path('cosmetics/', views.cosmetics_frontend, name='cosmetics_frontend'),
+    path('photographer/', views.photographer_frontend, name='photographer_frontend'),
     path('musicApi/', include('musicApi.urls')),
     path('furnitureApi/', include('furnitureApi.urls')),
     path('cosmeticsApi/', include('cosmeticsApi.urls')),
     path('spotify/', include('spotify.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
