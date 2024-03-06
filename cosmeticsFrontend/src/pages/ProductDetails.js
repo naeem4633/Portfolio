@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import Slider from '../components/Slider';
 import MovingImages from '../components/MovingImages';
 import { ResetPage } from '../components/ResetPage';
+import { BACKEND_URL } from '../backendUrl.js';
+
 
 const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
     const { id } = useParams();
@@ -19,7 +21,7 @@ const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
       // Function to fetch the products based on the category name
       const fetchProduct = async () => {
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/products/${id}`);
+          const response = await axios.get(BACKEND_URL + `products/${id}`);
           setProduct(response.data);
         } catch (error) {
           console.error('Error fetching product:', error);

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BACKEND_URL } from '../backendUrl.js';
+
 
 const Checkout = ({savedItems, onChange}) => {
     const [orderPlacedVisible, setOrderPlacedVisible] = useState(false);
@@ -24,7 +26,7 @@ const Checkout = ({savedItems, onChange}) => {
     };
     
     const handleDelete = (id) => {
-      fetch(`http://127.0.0.1:8000/api/saveditems/${id}/delete`, {
+      fetch(BACKEND_URL + `saveditems/${id}/delete`, {
         method: 'DELETE',
       })
         .then(response => {
@@ -48,7 +50,7 @@ const Checkout = ({savedItems, onChange}) => {
           shipping_address: formData.address,
         };
     
-        axios.post('http://127.0.0.1:8000/api/order/create', data)
+        axios.post(BACKEND_URL + '/order/create', data)
           .then((response) => {
             // Handle the successful response from the backend if needed
             console.log('Order created successfully:', response.data);

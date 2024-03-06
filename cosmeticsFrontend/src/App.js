@@ -14,7 +14,7 @@ import Signup from './pages/Signup';
 import Checkout from './pages/Checkout';
 import SearchResults from './pages/SearchResults';
 import ErrorPage from './pages/ErrorPage';
-import { BACKEND_URL } from '.backendUrl.js'
+import { BACKEND_URL } from './backendUrl.js'
 
 function App() {
   const [savedItems, setSavedItems] = useState([]);
@@ -60,12 +60,17 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header/>
+        <Header savedItems={savedItems}/>
         <div className="App-body">
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/listing' element={<Listing/>}/>
-            <Route path='/checkout' element={<Checkout/>} />
+            <Route path='/product-details/:id' element={<ProductDetails onChange={handleSavedItemsChange} setCartIsHovered={setCartIsHovered} setWishlistIsHovered={setWishlistIsHovered}/>}/>
+            <Route path='/listing' element={<Listing onChange={handleSavedItemsChange} setCartIsHovered={setCartIsHovered} setWishlistIsHovered={setWishlistIsHovered}/>}/>
+            <Route path='/brands/:brandName' element={<BrandListing onChange={handleSavedItemsChange} setCartIsHovered={setCartIsHovered} setWishlistIsHovered={setWishlistIsHovered}/>}/>
+            <Route path='/category/:categoryName' element={<CategoryListing onChange={handleSavedItemsChange} setCartIsHovered={setCartIsHovered} setWishlistIsHovered={setWishlistIsHovered}/>}/>
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/checkout' element={<Checkout savedItems={savedItems} onChange={handleSavedItemsArrayChange} />} />
             <Route path='/product-search/:query' element={<SearchResults />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>

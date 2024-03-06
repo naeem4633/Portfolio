@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { ResetPage } from '../components/ResetPage';
+import { BACKEND_URL } from '../backendUrl.js';
 
 const Listing = ({products, onChange, setWishlistIsHovered, setCartIsHovered}) => {
     const [user, setUser] = useState({});
@@ -82,7 +83,7 @@ const Listing = ({products, onChange, setWishlistIsHovered, setCartIsHovered}) =
         is_wishlist: false,
       };
     
-      axios.post('http://127.0.0.1:8000/api/saveditems/create', data)
+      axios.post(BACKEND_URL + 'saveditems/create', data)
         .then((response) => {
           // Handle the response from the backend if needed
           console.log('Product added to cart successfully:', response.data);
@@ -113,7 +114,7 @@ const Listing = ({products, onChange, setWishlistIsHovered, setCartIsHovered}) =
         is_wishlist: true,
       };
     
-      axios.post('http://127.0.0.1:8000/api/saveditems/create', data)
+      axios.post(BACKEND_URL + '/saveditems/create', data)
         .then((response) => {
           // Handle the response from the backend if needed
           console.log('Product added to wishlist successfully:', response.data);

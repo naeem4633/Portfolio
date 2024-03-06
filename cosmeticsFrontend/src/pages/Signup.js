@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../authorization.css'
 import { ResetPage } from '../components/ResetPage';
+import { BACKEND_URL } from '../backendUrl.js';
 
 const Signup = () => {
     // State to hold form data
@@ -22,14 +23,14 @@ const Signup = () => {
       };
     
     // Make the first POST request to register the user
-    axios.post('http://127.0.0.1:8000/api/register', postData)
+    axios.post(BACKEND_URL + 'register', postData)
         .then((response) => {
           console.log('Registration successful!', response.data);
           const loginData = {
             email: formData.email,
             password: formData.password,
           };
-          return axios.post('http://127.0.0.1:8000/api/login', loginData);
+          return axios.post(BACKEND_URL + 'login', loginData);
         })
         .then((response) => {
           console.log('Login successful!', response.data);

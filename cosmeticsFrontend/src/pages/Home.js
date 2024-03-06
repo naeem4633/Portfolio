@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Slider from '../components/Slider';
 import { ResetPage } from '../components/ResetPage';
+import { BACKEND_URL } from '../backendUrl.js';
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1023);
@@ -24,7 +25,7 @@ const Home = () => {
     // Function to fetch the first 10 products using Axios
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/products');
+        const response = await axios.get(BACKEND_URL + 'products');
         // Assuming the API response returns the first 10 products
         setProducts(response.data.slice(0, 10));
       } catch (error) {

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../authorization.css'
 import { ResetPage } from '../components/ResetPage';
+import { BACKEND_URL } from '../backendUrl.js';
 
 const Login = () => {
   const [authorized, setAuthorized] = useState(true);
@@ -19,7 +20,7 @@ const Login = () => {
       password: formData.password,
     };
     console.log(formData);
-    axios.post('http://127.0.0.1:8000/api/login', postData)
+    axios.post(BACKEND_URL + 'login', postData)
       .then((response) => {
         console.log('Login successful!', response.data);
         const user = response.data;

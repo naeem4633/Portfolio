@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {Link} from 'react-router-dom';
+import { BACKEND_URL } from '../backendUrl.js';
 
 const Header = ({savedItems, onChange, cartIsHovered, wishlistIsHovered, setCartIsHovered, setWishlistIsHovered}) => {
     const [makeupOpen, setMakeupOpen] = useState(false);
@@ -44,7 +45,7 @@ const Header = ({savedItems, onChange, cartIsHovered, wishlistIsHovered, setCart
       }, []);
 
       const handleDelete = (id) => {
-        fetch(`http://127.0.0.1:8000/api/saveditems/${id}/delete`, {
+        fetch(BACKEND_URL + `saveditems/${id}/delete`, {
           method: 'DELETE',
         })
           .then(response => {
