@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import { ResetPage } from './ResetPage';
+import { BACKEND_URL } from '../backendUrl.js'
 
 const Details = ({ savedItems, onChange }) => {
     let { id } = useParams();
@@ -17,7 +18,7 @@ const Details = ({ savedItems, onChange }) => {
       const fetchFurnitureItem = async () => {
         try {
           const furnitureResponse = await axios.get(
-            `http://127.0.0.1:8000/api/single-item/${id}`
+            BACKEND_URL + `single-item/${id}`
           );
           const furnitureData = furnitureResponse.data;
           setFurniture(furnitureData);
@@ -34,7 +35,7 @@ const Details = ({ savedItems, onChange }) => {
         if (furniture.category) {
     try {
             const similarFurnitureResponse = await axios.get(
-              `http://127.0.0.1:8000/api/similar-items/${furniture.category}`
+              BACKEND_URL + `similar-items/${furniture.category}`
             );
             const similarFurnitureData = similarFurnitureResponse.data;
             setSimilarFurniture(similarFurnitureData);
@@ -56,7 +57,7 @@ const Details = ({ savedItems, onChange }) => {
           is_wishlist: is_wishlist,
         };
       
-        fetch(`http://127.0.0.1:8000/api/save-item/`, {
+        fetch(BACKEND_URL + `save-item/`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'

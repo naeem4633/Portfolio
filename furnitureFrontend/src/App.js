@@ -13,20 +13,21 @@ import Checkout from './components/Checkout';
 import UnderDevelopment from './components/UnderDevelopment';
 import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
+import { BACKEND_URL } from './backendUrl.js'
 
 export default function App() {
   const [furniture, setFurniture] = useState([]);
   const [savedItems, setSavedItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/saved-items/')
+    fetch(BACKEND_URL + 'saved-items/')
       .then(response => response.json())
       .then(data => setSavedItems(data))
       .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/')
+    fetch(BACKEND_URL)
       .then(response => response.json())
       .then(data => setFurniture(data))
       .catch(error => console.error(error));

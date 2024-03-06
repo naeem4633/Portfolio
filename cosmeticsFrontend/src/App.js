@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Checkout from './pages/Checkout';
 import SearchResults from './pages/SearchResults';
 import ErrorPage from './pages/ErrorPage';
+import { BACKEND_URL } from '.backendUrl.js'
 
 function App() {
   const [savedItems, setSavedItems] = useState([]);
@@ -24,7 +25,7 @@ function App() {
     // Function to fetch savedItems from the backend
     const fetchSavedItems = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/saveditems');
+        const response = await axios.get(BACKEND_URL + 'saveditems');
         setSavedItems(response.data);
       } catch (error) {
         console.error('Error fetching savedItems:', error);

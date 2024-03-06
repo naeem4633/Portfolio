@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { BACKEND_URL } from '../backendUrl.js'
 
 
 const Header = ({furniture, savedItems, onChange}) => {
@@ -24,7 +25,7 @@ const Header = ({furniture, savedItems, onChange}) => {
   let wishlistItems = savedItems.filter(item => item.is_wishlist === true);
 
   const handleDelete = (id) => {
-    fetch(`http://127.0.0.1:8000/api/delete-item/${id}`, {
+    fetch(BACKEND_URL + `delete-item/${id}`, {
       method: 'DELETE',
     })
       .then(response => response.json())
