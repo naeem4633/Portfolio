@@ -27,6 +27,7 @@ urlpatterns = [
     path('furniture/', views.furniture_frontend, name='furniture_frontend'),
     path('cosmetics/', views.cosmetics_frontend, name='cosmetics_frontend'),
     path('photographer/', views.photographer_frontend, name='photographer_frontend'),
+    path('euphoria/', views.coffee_frontend, name='coffee_frontend'),
     path('musicApi/', include('musicApi.urls')),
     path('furnitureApi/', include('furnitureApi.urls')),
     path('cosmeticsApi/', include('cosmeticsApi.urls')),

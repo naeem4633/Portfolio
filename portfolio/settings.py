@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cosmeticsFrontend',
     'furnitureApi',
     'cosmeticsApi',
+    'coffeeFrontend',
 ]
 
 MIDDLEWARE = [
@@ -140,6 +141,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'furnitureFrontend/build/static'),
     os.path.join(BASE_DIR, 'photographerFrontend/build/static'),
     os.path.join(BASE_DIR, 'cosmeticsFrontend/build/static'),
+    os.path.join(BASE_DIR, 'coffeeFrontend/build/static'),
 ]
 
 AUTH_USER_MODEL = 'musicApi.CustomUser'

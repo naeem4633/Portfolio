@@ -27,7 +27,7 @@ const Login = () => {
         console.log(user);
         localStorage.setItem('user', JSON.stringify(user));
         setAuthorized(true);
-        window.location.href = '/';
+        window.location.href = '/cosmetics';
       })
       .catch((error) => {
         console.error('Login failed:', error);

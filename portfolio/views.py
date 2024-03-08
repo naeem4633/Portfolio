@@ -13,4 +13,7 @@ def cosmetics_frontend(request):
     return render(request, 'cosmeticsFrontend/build/index.html')
 
 def photographer_frontend(request):
-    return render(request, 'photographerFrontend/build/index.html')
+    return render(request, 'photographerFrontend/build/index.html') 
+
+def coffee_frontend(request):
+    return render(request, 'coffeeFrontend/build/index.html') 

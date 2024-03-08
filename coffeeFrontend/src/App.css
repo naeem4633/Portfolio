@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.first-group {
+    opacity: 0;
+    transition: opacity 0.5s
+  }
+  
+  .first-group.show {
+    opacity: 1;
+  }
+  
+  .first-group:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+  
+  .first-group:nth-child(2) {
+    transition-delay: 0.9s;
+  }
+
+.second-group {
+    opacity: 0;
+    transform: translateX(-20px); /* Initial position outside the viewport */
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .second-group.show {
+    opacity: 1;
+    transform: translateX(0); /* Slide in from the left */
+  }
+  
+  .second-group:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+  
+  .second-group:nth-child(2) {
+    transition-delay: 0.6s;
+  }
+  
+  .second-group:nth-child(3) {
+    transition-delay: 0.9s;
+  }
+  
+  .second-group:nth-child(4) {
+    transition-delay: 1.2s;
+  }
+  
+  .third-group {
+    opacity: 0;
+    transform: translateX(-50px); /* Initial position outside the viewport */
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .third-group.show {
+    opacity: 1;
+    transform: translateX(0); /* Slide in from the left */
+  }
+  
+  .third-group:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  
+  .third-group:nth-child(2) {
+    transition-delay: 0.3s;
+  }
+  
+  .third-group:nth-child(3) {
+    transition-delay: 0.4s;
+  }

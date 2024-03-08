@@ -42,7 +42,7 @@ const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
           quantity: quantity,
         };
       
-        axios.post('http://127.0.0.1:8000/api/saveditems/create', data)
+        axios.post(BACKEND_URL + 'saveditems/create', data)
           .then((response) => {
             // Handle the response from the backend if needed
             console.log('Product added to cart successfully:', response.data);
