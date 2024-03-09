@@ -13,7 +13,7 @@ import Checkout from './components/Checkout';
 import UnderDevelopment from './components/UnderDevelopment';
 import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
-import { BACKEND_URL } from './backendUrl.js'
+import { BACKEND_URL } from './backendUrl.js';
 
 export default function App() {
   const [furniture, setFurniture] = useState([]);

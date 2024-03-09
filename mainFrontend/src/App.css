@@ -1,0 +1,54 @@
+*{
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.font-secondary{
+    font-family: 'Exo', sans-serif;
+}
+  
+
+@keyframes fadeInFromTop {
+    0% {
+      opacity: 1;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .first-group {
+    opacity: 1;
+    transform: translateY(-50%);
+    animation: fadeInFromTop 1s ease-in-out; /* Set the animation properties */
+    z-index: 1;
+  }
+  
+  .first-group.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .second-group {
+    opacity: 0;
+    transition: opacity 1s
+  }
+  
+  .second-group.show {
+    opacity: 1;
+    transition-delay: 0.5s;
+  }
+
+  .third-group {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInFromTop 1s ease-in-out; /* Set the animation properties */
+    transition-delay: 0.5s;
+    z-index: 1;
+  }
+
+  .third-group.show {
+    opacity: 1;
+    transform: translateY(0);
+  }

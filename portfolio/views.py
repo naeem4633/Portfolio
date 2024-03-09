@@ -17,3 +17,6 @@ def photographer_frontend(request):
 
 def coffee_frontend(request):
     return render(request, 'coffeeFrontend/build/index.html') 
+
+def main_frontend(request):
+    return render(request, 'mainFrontend/build/index.html') 
