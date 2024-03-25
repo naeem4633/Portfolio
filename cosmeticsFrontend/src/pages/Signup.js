@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../authorization.css'
 import { ResetPage } from '../components/ResetPage';
-import { BACKEND_URL } from '../backendUrl.js';
+import { BACKEND_URL } from '../backendUrl';
 
 const Signup = () => {
     // State to hold form data
@@ -23,14 +23,14 @@ const Signup = () => {
       };
     
     // Make the first POST request to register the user
-    axios.post(BACKEND_URL + 'register', postData)
+    axios.post(`${BACKEND_URL}register`, postData)
         .then((response) => {
           console.log('Registration successful!', response.data);
           const loginData = {
             email: formData.email,
             password: formData.password,
           };
-          return axios.post(BACKEND_URL + 'login', loginData);
+          return axios.post(`${BACKEND_URL}login`, loginData);
         })
         .then((response) => {
           console.log('Login successful!', response.data);
@@ -87,10 +87,10 @@ const Signup = () => {
         </p><p className="authorization-p line">Or Sign in with</p>
 
             <div className='flex flex-col'>
-              {/* <div className='flex py-2 justify-center items-center space-x-2'>
+              <div className='flex py-2 justify-center items-center space-x-2'>
                   <img className='w-6 h-6' src='../static/images/warning.png'></img>
                   <p className='text-[#c82f7e]'>Options disabled due to security reasons.</p>
-              </div> */}
+              </div>
               <div className="authorization-flex-row">
                 <button className="authorization-btn google">
                 <svg version="1.1" width="20" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve">

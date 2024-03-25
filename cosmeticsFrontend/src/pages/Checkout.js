@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { BACKEND_URL } from '../backendUrl.js';
-
+import { BACKEND_URL } from '../backendUrl';
 
 const Checkout = ({savedItems, onChange}) => {
     const [orderPlacedVisible, setOrderPlacedVisible] = useState(false);
@@ -26,7 +25,7 @@ const Checkout = ({savedItems, onChange}) => {
     };
     
     const handleDelete = (id) => {
-      fetch(BACKEND_URL + `saveditems/${id}/delete`, {
+      fetch(`${BACKEND_URL}saveditems/${id}/delete`, {
         method: 'DELETE',
       })
         .then(response => {
@@ -50,7 +49,7 @@ const Checkout = ({savedItems, onChange}) => {
           shipping_address: formData.address,
         };
     
-        axios.post(BACKEND_URL + '/order/create', data)
+        axios.post(`${BACKEND_URL}order/create`, data)
           .then((response) => {
             // Handle the successful response from the backend if needed
             console.log('Order created successfully:', response.data);
@@ -123,7 +122,7 @@ const Checkout = ({savedItems, onChange}) => {
                                 <p className="mb-2">$ {item.product.price}</p>
                             </div>
                             <div className='cursor-pointer'>
-                                <img src="./static/images/bin.png" className="w-5" onClick={() => handleDelete(item.id)} alt="delete" />
+                                <img src="../static/images/bin.png" className="w-5" onClick={() => handleDelete(item.id)} alt="delete" />
                             </div>
                         </div>
                     </div>

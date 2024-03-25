@@ -32,6 +32,7 @@ export default function App() {
       .then(data => setFurniture(data))
       .catch(error => console.error(error));
   }, []);
+  
 
   // Filter furniture by category
   const beds = furniture.filter(item => item.category === 'bed');

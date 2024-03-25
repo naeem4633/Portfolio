@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {Link} from 'react-router-dom';
-import { BACKEND_URL } from '../backendUrl.js';
+import { BACKEND_URL } from '../backendUrl';
 
 const Header = ({savedItems, onChange, cartIsHovered, wishlistIsHovered, setCartIsHovered, setWishlistIsHovered}) => {
     const [makeupOpen, setMakeupOpen] = useState(false);
@@ -45,7 +45,7 @@ const Header = ({savedItems, onChange, cartIsHovered, wishlistIsHovered, setCart
       }, []);
 
       const handleDelete = (id) => {
-        fetch(BACKEND_URL + `saveditems/${id}/delete`, {
+        fetch(`${BACKEND_URL}saveditems/${id}/delete`, {
           method: 'DELETE',
         })
           .then(response => {
@@ -454,7 +454,7 @@ const Header = ({savedItems, onChange, cartIsHovered, wishlistIsHovered, setCart
                                                 </div>
                                                 <div className=''>
                                                     <img
-                                                    src="./static/images/delete.png"
+                                                    src="../static/images/delete.png"
                                                     className="w-6"
                                                     onClick={() => handleDelete(item.id)}
                                                     alt="delete"
@@ -509,7 +509,7 @@ const Header = ({savedItems, onChange, cartIsHovered, wishlistIsHovered, setCart
                                                     <p className="mb-2">$ {item.product.price}</p>
                                                 </div>
                                                 <div className=''>
-                                                    <img src="./static/images/delete.png" className="w-6" onClick={() => handleDelete(item.id)} alt="delete"/>
+                                                    <img src="../static/images/delete.png" className="w-6" onClick={() => handleDelete(item.id)} alt="delete"/>
                                                 </div>
                                             </div>
                                         </div>

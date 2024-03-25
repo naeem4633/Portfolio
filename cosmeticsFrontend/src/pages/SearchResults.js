@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Listing from '../components/Listing';
 import { ResetPage } from '../components/ResetPage';
-import { BACKEND_URL } from '../backendUrl.js';
-
+import { BACKEND_URL } from '../backendUrl';
 
 const SearchResults = () => {
   const { query } = useParams();
@@ -14,7 +13,7 @@ const SearchResults = () => {
     // Function to fetch search results from the backend
     const fetchSearchResults = async () => {
       try {
-        const response = await axios.post(BACKEND_URL + 'product-search', { query });
+        const response = await axios.post(`${BACKEND_URL}product-search`, { query });
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching search results:', error);

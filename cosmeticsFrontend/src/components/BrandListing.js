@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Listing from './Listing';
-import { BACKEND_URL } from '../backendUrl.js'
+import { BACKEND_URL } from '../backendUrl';
 
 const BrandListing = ({onChange, setCartIsHovered, setWishlistIsHovered }) => {
     const { brandName } = useParams();
@@ -12,7 +12,7 @@ const BrandListing = ({onChange, setCartIsHovered, setWishlistIsHovered }) => {
       // Function to fetch the products based on the brand name
       const fetchProducts = async () => {
         try {
-          const response = await axios.get(BACKEND_URL + `brand-products/${brandName}`);
+          const response = await axios.get(`${BACKEND_URL}brand-products/${brandName}`);
           setProducts(response.data);
         } catch (error) {
           console.error('Error fetching products:', error);

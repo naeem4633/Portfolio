@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 import Slider from '../components/Slider';
 import MovingImages from '../components/MovingImages';
 import { ResetPage } from '../components/ResetPage';
-import { BACKEND_URL } from '../backendUrl.js';
-
+import { BACKEND_URL } from '../backendUrl';
 
 const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
     const { id } = useParams();
@@ -21,7 +20,7 @@ const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
       // Function to fetch the products based on the category name
       const fetchProduct = async () => {
         try {
-          const response = await axios.get(BACKEND_URL + `products/${id}`);
+          const response = await axios.get(`${BACKEND_URL}products/${id}`);
           setProduct(response.data);
         } catch (error) {
           console.error('Error fetching product:', error);
@@ -42,7 +41,7 @@ const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
           quantity: quantity,
         };
       
-        axios.post(BACKEND_URL + 'saveditems/create', data)
+        axios.post(`${BACKEND_URL}saveditems/create`, data)
           .then((response) => {
             // Handle the response from the backend if needed
             console.log('Product added to cart successfully:', response.data);
@@ -74,7 +73,7 @@ const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
         quantity: quantity,
       };
     
-      axios.post('http://127.0.0.1:8000/api/saveditems/create', data)
+      axios.post(`${BACKEND_URL}saveditems/create`, data)
         .then((response) => {
           // Handle the response from the backend if needed
           console.log('Product added to wishlist successfully:', response.data);
@@ -102,7 +101,7 @@ const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
         // Function to fetch the first 10 products using Axios
         const fetchProducts = async () => {
           try {
-            const response = await axios.get('http://127.0.0.1:8000/api/products');
+            const response = await axios.get(`${BACKEND_URL}products`);
             // Assuming the API response returns the first 10 products
             setProducts(response.data.slice(0, 10));
           } catch (error) {
@@ -193,11 +192,11 @@ const ProductDetails = ({onChange, setCartIsHovered, setWishlistIsHovered}) => {
                 <p className='text-sm text-gray-500'>Sku: {product.sku}</p>
                 <div className='flex flex-col space-y-2'>
                   <button onClick={() => handleAddToCart(product)} className='flex flex-row w-48 color-secondary h-14 items-center rounded px-4 space-x-4 hover:bg-[#96205d] transition-all duration-200'>
-                      <img src='../static/images/cart-white.png' className='w-5 h-5'></img>
+                      <img src='../static/images/cart.png' className='w-5 h-5'></img>
                       <p className='text-white'>Add to cart</p>
                   </button>
                   <button onClick={() => handleAddToWishlist(product)} className='flex flex-row w-48 color-secondary h-14 items-center rounded px-4 space-x-4 hover:bg-[#96205d] transition-all duration-200'>
-                      <img src='../static/images/heart-white.png' className='w-5 h-5'></img>
+                      <img src='../static/images/heart.png' className='w-5 h-5'></img>
                       <p className='text-white'>Add to wishlist</p>
                   </button>
                 </div>

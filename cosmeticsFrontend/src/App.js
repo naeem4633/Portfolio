@@ -14,7 +14,7 @@ import Signup from './pages/Signup';
 import Checkout from './pages/Checkout';
 import SearchResults from './pages/SearchResults';
 import ErrorPage from './pages/ErrorPage';
-import { BACKEND_URL } from './backendUrl.js'
+import { BACKEND_URL } from './backendUrl';
 
 function App() {
   const [savedItems, setSavedItems] = useState([]);
@@ -25,7 +25,7 @@ function App() {
     // Function to fetch savedItems from the backend
     const fetchSavedItems = async () => {
       try {
-        const response = await axios.get(BACKEND_URL + 'saveditems');
+        const response = await axios.get(`${BACKEND_URL}saveditems`);
         setSavedItems(response.data);
       } catch (error) {
         console.error('Error fetching savedItems:', error);
@@ -60,7 +60,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header savedItems={savedItems}/>
+        <Header savedItems={savedItems} onChange={handleSavedItemsArrayChange} cartIsHovered={cartIsHovered} wishlistIsHovered={wishlistIsHovered} setCartIsHovered={setCartIsHovered} setWishlistIsHovered={setWishlistIsHovered}/>
         <div className="App-body">
           <Routes>
             <Route path='/' element={<Home/>}/>

@@ -164,10 +164,10 @@ const Work = () => {
                   <p className="text-black text-xs lg:text-sm tracking-wide">A photographer portfolio website.</p>
                 </div>
                 <div className='w-full space-x-2 flex items-center'>
-                  <Link to={'/photographer'} className='p-3 flex-grow h-full text-gray-200 bg-black rounded flex items-center justify-center space-x-3 cursor-pointer hover:opacity-80 transition-all duration-200 ease-in-out'>
+                  <a href='https://github.com/naeem4633/photographer-portfolio-website/wiki/Preview' className='p-3 flex-grow h-full text-gray-200 bg-black rounded flex items-center justify-center space-x-3 cursor-pointer hover:opacity-80 transition-all duration-200 ease-in-out'>
                     <button className="text-xs lg:text-lg">Live Preview</button>
                     <img className='w-4 h-4 opacity-90' src='../static/images/link.png'></img>
-                  </Link>
+                  </a>
                   <a href='https://github.com/naeem4633/photographer-portfolio-website' className='py-2 px-4 w-fit h-full text-gray-200 bg-black rounded flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-200 ease-in-out'>
                     <img className='w-8 h-8 opacity-90' src='../static/images/github.png'></img>
                   </a>
@@ -193,10 +193,10 @@ const Work = () => {
                   <p className="text-black text-xs lg:text-sm tracking-wide">A simple business website for a coffee shop</p>
                 </div>
                 <div className='w-full space-x-2 flex items-center'>
-                  <Link to={'/euphoria'} className='p-3 flex-grow h-full text-gray-200 bg-black rounded flex items-center justify-center space-x-3 cursor-pointer hover:opacity-80 transition-all duration-200 ease-in-out'>
+                  <a href='https://github.com/naeem4633/coffee-shop/wiki/Preview' className='p-3 flex-grow h-full text-gray-200 bg-black rounded flex items-center justify-center space-x-3 cursor-pointer hover:opacity-80 transition-all duration-200 ease-in-out'>
                     <button className="text-xs lg:text-lg">Live Preview</button>
                     <img className='w-4 h-4 opacity-90' src='../static/images/link.png'></img>
-                  </Link>
+                  </a>
                   <a href='https://github.com/naeem4633/coffee-shop' className='py-2 px-4 w-fit h-full text-gray-200 bg-black rounded flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-200 ease-in-out'>
                     <img className='w-8 h-8 opacity-90' src='../static/images/github.png'></img>
                   </a>
